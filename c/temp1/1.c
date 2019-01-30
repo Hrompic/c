@@ -3,5 +3,6 @@
 int main()
 {
 	int *i = 1024;
-	printf("%d",++i);
+	printf("%d\n",++i);
+	printf("%p\n", main);
 }
