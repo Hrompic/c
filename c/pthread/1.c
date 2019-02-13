@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <math.h>
 #include <pthread.h>
 #include <unistd.h>
 #define N 20
 	int n=0;
+	double *d;
 void* func(void *att)
 {
 	//static int n=0;
@@ -10,9 +12,11 @@ void* func(void *att)
 	printf("Thread: %d\n",n);
 //	n++;
 	double t=.0;
+	d =&t;
 	for(int i=0; i<(1<<31); i++)
 		t = sqrt(pow(i*i, (double)1/2));
-	return (void *)(double)t;
+	//return (void *)&d;
+	return &t;
 }
 int main()
 {
