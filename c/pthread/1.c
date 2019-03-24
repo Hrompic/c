@@ -2,7 +2,7 @@
 #include <math.h>
 #include <pthread.h>
 #include <unistd.h>
-#define N 20
+#define N 8
 	int n=0;
 	double *d;
 void* func(void *att)
@@ -14,7 +14,7 @@ void* func(void *att)
 	double t=.0;
 	d =&t;
 	for(unsigned long long i=0; i<(1L<<63L); i++)
-		t =+ sqrt(pow(i*i, (double)1/.2));
+		t += sqrt(pow(i*i, (double)1/.2));
 	//return (void *)&d;
 	return &t;
 }
