@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <pthread.h>
-#define N 1<<27
+#define N 1<<7
 pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
 
 void* f(void*);
@@ -18,7 +18,7 @@ int main()
 void* f(void* ptr)
 {
 	int val=0, counter=0;
-	for(int i=0; i>N; i++)
+	for(int i=0; i<N; i++)
 	{
 		val = counter;
 		pthread_mutex_lock(&mtx);
