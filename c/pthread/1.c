@@ -24,6 +24,9 @@ int main()
 	for(int i=0; i<N; i++)
 		pthread_create(&th[i], NULL, func, NULL);
 	for(int i=0; i<N; i++)
+	{
+		pthread_kill(th[i], 15);
 		pthread_join(th[i], NULL);
+	}
 
 }
