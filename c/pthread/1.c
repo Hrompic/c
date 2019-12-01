@@ -8,6 +8,7 @@
 void* func(void *att)
 {
 	//static int n=0;
+	fork();
 	n++;
 	printf("Thread: %d\n",n);
 //	n++;
@@ -25,7 +26,7 @@ int main()
 		pthread_create(&th[i], NULL, func, NULL);
 	for(int i=0; i<N; i++)
 	{
-		pthread_kill(th[i], 15);
+//		pthread_kill(th[i], 15);
 		pthread_join(th[i], NULL);
 	}
 
